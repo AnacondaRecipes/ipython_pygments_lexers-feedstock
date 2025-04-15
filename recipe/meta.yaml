@@ -16,18 +16,18 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - pip
     - flit-core
   run:
-    - python >={{ python_min }}
+    - python
     - pygments
 
 test:
   imports:
     - ipython_pygments_lexers
   requires:
-    - python {{ python_min }}
+    - python
     - pip
   commands:
     - pip check
