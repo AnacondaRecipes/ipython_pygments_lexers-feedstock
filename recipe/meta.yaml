@@ -10,24 +10,24 @@ source:
   sha256: 09c0138009e56b6854f9535736f4171d855c8c08a563a0dcd8022f78355c7e81
 
 build:
-  noarch: python
+  skip: True  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - pip
     - flit-core
   run:
-    - python >={{ python_min }}
+    - python
     - pygments
 
 test:
   imports:
     - ipython_pygments_lexers
   requires:
-    - python {{ python_min }}
+    - python
     - pip
   commands:
     - pip check
@@ -42,6 +42,8 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
+  doc_url: https://github.com/ipython/ipython-pygments-lexers
+  dev_url: https://github.com/ipython/ipython-pygments-lexers
 
 extra:
   recipe-maintainers:
